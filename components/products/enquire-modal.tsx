@@ -22,7 +22,7 @@ export function EnquireModal({ isOpen, onClose, productName }: EnquireModalProps
                         </button>
                     </div>
 
-                    <div className="p-8">
+                    <div className="p-4 md:p-8">
                         <div className="mb-6 p-4 bg-[#F8F9FA] border border-[#E5E5E5] flex gap-4 items-center">
                             <span className="text-[#FF4400] font-bold uppercase text-xs tracking-widest">Ref:</span>
                             <span className="font-mono text-sm font-bold">{productName}</span>
