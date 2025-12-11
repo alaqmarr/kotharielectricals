@@ -29,9 +29,9 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="font-bold text-black uppercase text-sm mb-1">Physical Location</h3>
                                     <p className="text-gray-500 text-sm font-mono">
-                                        5-2-192/1, Distilary Road,<br />
-                                        Ranigunj, Secunderabad,<br />
-                                        Telangana 500003
+                                        # 5-2-310/44, Hyderbasti,<br />
+                                        Adj Traffic P.S, R.P. Road,<br />
+                                        Secunderabad- 500003
                                     </p>
                                 </div>
                             </div>
@@ -53,15 +53,15 @@ export default function ContactPage() {
                                     <div className="p-2 bg-black text-white"><Phone size={20} /></div>
                                     <div>
                                         <h3 className="font-bold text-black uppercase text-sm mb-1">Voice Links</h3>
-                                        <p className="text-gray-500 text-sm font-mono hover:text-[#FF4400] cursor-pointer">+91 93910 79492</p>
-                                        <p className="text-gray-500 text-sm font-mono">+91 40-6648 4567</p>
+                                        <p className="text-gray-500 text-sm font-mono hover:text-[#FF4400] cursor-pointer">9246564652</p>
+                                        <p className="text-gray-500 text-sm font-mono">9030615382</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <div className="p-2 bg-black text-white"><Mail size={20} /></div>
                                     <div>
                                         <h3 className="font-bold text-black uppercase text-sm mb-1">Digital Mail</h3>
-                                        <p className="text-gray-500 text-sm font-mono break-all">kotharielectricals@gmail.com</p>
+                                        <p className="text-gray-500 text-sm font-mono break-all">kothari_1@hotmail.com</p>
                                     </div>
                                 </div>
                             </div>

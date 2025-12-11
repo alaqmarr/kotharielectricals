@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Twitter, MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 
 export function Footer() {
     return (
@@ -20,6 +20,9 @@ export function Footer() {
                                 <Icon size={16} />
                             </a>
                         ))}
+                        <a href="https://wa.me/919246564652" target="_blank" rel="noopener noreferrer" className="p-2 border border-black hover:bg-[#25D366] hover:border-[#25D366] hover:text-white transition-colors" title="Chat on WhatsApp">
+                            <MessageCircle size={16} />
+                        </a>
                     </div>
                 </div>
 
@@ -42,17 +45,18 @@ export function Footer() {
                         <div className="flex items-start gap-3">
                             <MapPin size={16} className="mt-1 text-[#FF4400]" />
                             <p className="text-sm font-medium">
-                                5-2-192/1, Distilary Road,<br />
-                                Ranigunj, Secunderabad
+                                # 5-2-310/44, Hyderbasti,<br />
+                                Adj Traffic P.S, R.P. Road,<br />
+                                Secunderabad- 500003
                             </p>
                         </div>
                         <div className="flex items-center gap-3">
                             <Phone size={16} className="text-[#FF4400]" />
-                            <p className="text-sm font-bold font-mono">+91 93910 79492</p>
+                            <p className="text-sm font-bold font-mono">9246564652 / 9030615382</p>
                         </div>
                         <div className="flex items-center gap-3">
                             <Mail size={16} className="text-[#FF4400]" />
-                            <p className="text-sm font-bold font-mono">kotharielectricals@gmail.com</p>
+                            <p className="text-sm font-bold font-mono">kothari_1@hotmail.com</p>
                         </div>
                     </div>
                 </div>

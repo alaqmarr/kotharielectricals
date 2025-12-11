@@ -3,6 +3,7 @@ import { Inter, Rajdhani } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { FloatingSupport } from '@/components/ui/floating-support';
 import { ThemeProvider } from '@/components/theme-provider';
 import { PulseGridBackground } from '@/components/ui/pulse-grid-background';
 
@@ -62,6 +63,7 @@ export default function RootLayout({
               {children}
             </div>
           </main>
+          <FloatingSupport />
           <Footer />
         </ThemeProvider>
       </body>

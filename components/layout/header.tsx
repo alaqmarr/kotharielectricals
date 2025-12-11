@@ -14,7 +14,7 @@ export function Header() {
             {/* Top Bar - Technical Data */}
             <div className="hidden md:flex justify-between items-center px-6 py-1 bg-[#111] text-white text-[10px] font-mono tracking-widest uppercase">
                 <span>Sys.Status: Online</span>
-                <span>Helpdesk: +91 93910 79492</span>
+                <span>Helpdesk: +91 92465 64652</span>
             </div>
 
             <div className="max-w-[1920px] mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between">
