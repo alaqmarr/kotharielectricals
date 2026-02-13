@@ -49,14 +49,13 @@ export default async function ProductPage({ params }: { params: { id: string } }
                 <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
                     {/* Left: Image (Col 7) */}
                     <div className="lg:col-span-7">
-                        <TechnicalCard className="h-[500px] md:h-[600px] bg-white flex items-center justify-center relative overflow-hidden group">
+                        <div className="h-[500px] md:h-[600px] bg-white border border-[#E5E5E5] flex items-center justify-center overflow-hidden group/img">
                             {product.images?.[0]?.url ? (
-                                <img src={product.images[0].url} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-12 group-hover:scale-105 transition-transform duration-500" />
+                                <img src={product.images[0].url} alt={product.name} className="max-h-full max-w-full object-contain p-12 group-hover/img:scale-105 transition-transform duration-500" />
                             ) : (
                                 <div className="text-gray-100 font-black text-9xl -rotate-45 select-none">NO IMG</div>
                             )}
-                            <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
-                        </TechnicalCard>
+                        </div>
                     </div>
 
                     {/* Right: Specs (Col 5) */}
@@ -69,11 +68,13 @@ export default async function ProductPage({ params }: { params: { id: string } }
                             </div>
                         </div>
 
-                        <div className="border-t border-b border-[#E5E5E5] py-8 space-y-4">
-                            <p className="text-gray-600 font-mono text-sm leading-relaxed">
-                                {product.description || "No technical description available for this unit. Please contact engineering support for datasheet."}
-                            </p>
-                        </div>
+                        {product.description && (
+                            <div className="border-t border-b border-[#E5E5E5] py-8 space-y-4">
+                                <p className="text-gray-600 font-mono text-sm leading-relaxed">
+                                    {product.description}
+                                </p>
+                            </div>
+                        )}
 
                         {/* Specs Table */}
                         <TechnicalCard hoverEffect={false}>
