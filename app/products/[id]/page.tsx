@@ -51,7 +51,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
                     <div className="lg:col-span-7">
                         <TechnicalCard className="h-[500px] md:h-[600px] bg-white flex items-center justify-center relative overflow-hidden group">
                             {product.images?.[0]?.url ? (
-                                <Image src={product.images[0].url} alt={product.name} fill className="object-contain p-12 group-hover:scale-105 transition-transform duration-500" />
+                                <img src={product.images[0].url} alt={product.name} className="absolute inset-0 w-full h-full object-contain p-12 group-hover:scale-105 transition-transform duration-500" />
                             ) : (
                                 <div className="text-gray-100 font-black text-9xl -rotate-45 select-none">NO IMG</div>
                             )}

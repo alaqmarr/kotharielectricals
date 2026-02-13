@@ -108,7 +108,7 @@ export default async function Home() {
                 <Link href={`/products/${p.id}`} className="block group">
                   <div className="h-48 relative flex items-center justify-center bg-white border-b border-[#E5E5E5] overflow-hidden p-6 group-hover:bg-gray-50 transition-colors">
                     {p.images?.[0]?.url ? (
-                      <Image src={p.images[0].url} alt={p.name} fill className="object-contain p-8 group-hover:scale-110 transition-transform duration-500" />
+                      <img src={p.images[0].url} alt={p.name} className="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" />
                     ) : (
                       <div className="text-gray-200 font-black text-6xl opacity-20 rotate-45 select-none">IMG</div>
                     )}

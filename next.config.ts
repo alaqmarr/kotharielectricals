@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     // any experimental features
   },
   images: {
-    domains: ["res.cloudinary.com", "images.unsplash.com"], // Pre-emptively adding common image domains
+    remotePatterns: [{ protocol: "https", hostname: "**" }],
   },
 };
 
