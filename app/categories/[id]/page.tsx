@@ -30,6 +30,7 @@ export default async function CategoryDetailPage(props: Props) {
         include: {
             brand: true,
             category: true,
+            images: true,
         },
     });
 
@@ -38,7 +39,7 @@ export default async function CategoryDetailPage(props: Props) {
         name: p.name,
         brandName: p.brand?.name || 'Unknown Brand',
         categoryName: p.category?.name || 'Uncategorized',
-        image: null,
+        image: p.images?.[0]?.url || null,
     }));
 
     return (
