@@ -8,19 +8,12 @@ import { ArrowRight, Star } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
-// Static Data for Categories
-const categories = [
-  { name: 'Wires & Cables', image: 'https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?q=80&w=400', slug: 'cat_wires_cables' },
-  { name: 'Switches', image: 'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=400', slug: 'cat_switches' },
-  { name: 'LED Lights', image: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?q=80&w=400', slug: 'cat_led_lights' },
-  { name: 'Switch Gear', image: 'https://images.unsplash.com/photo-1621905251189-fc01530c6c03?q=80&w=400', slug: 'cat_switch_gear' },
-];
 
 export default async function Home() {
   // Fetch featured products
   const featuredProducts = await prisma.product.findMany({
     take: 8,
-    where: { status: 'PUBLISHED' },
+    where: { status: { in: ['PUBLISHED', 'DRAFT'] } },
     include: { brand: true, category: true, images: true },
     orderBy: { priority: 'desc' }
   });
@@ -34,6 +27,13 @@ export default async function Home() {
   const marqueeBrands = await prisma.brand.findMany({
     orderBy: { name: 'asc' },
     select: { name: true }
+  });
+
+  // Fetch categories from database (no caching)
+  const categories = await prisma.category.findMany({
+    take: 8,
+    orderBy: { name: 'asc' },
+    select: { id: true, name: true }
   });
 
   return (
@@ -59,7 +59,7 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* 3. Core Categories - Grid */}
+      {/* 3. Core Categories - Grid (from Database) */}
       <section className="py-20 border-b border-[#E5E5E5] bg-frosted">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
@@ -73,9 +73,9 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {categories.map((cat, i) => (
-              <TechnicalCard key={cat.slug} className="group cursor-pointer" hoverEffect>
-                <Link href={`/categories/${cat.slug}`} className="block relative">
+            {categories.map((cat) => (
+              <TechnicalCard key={cat.id} className="group cursor-pointer" hoverEffect>
+                <Link href={`/categories/${cat.id}`} className="block relative">
                   <div className="p-6">
                     <h3 className="text-xl font-bold uppercase mb-1">{cat.name}</h3>
                     <div className="h-1 w-full bg-gray-100 mt-4 overflow-hidden">

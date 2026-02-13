@@ -7,7 +7,16 @@ import { notFound } from 'next/navigation';
 import { EnquireModal } from '@/components/products/enquire-modal'; // We will need client wrapper for interactivity
 import { ProductActions } from '@/components/products/product-actions'; // New Client Component
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+export const dynamicParams = true; // Allow on-demand generation of new pages
+
+export async function generateStaticParams() {
+    const products = await prisma.product.findMany({
+        where: { status: { in: ['PUBLISHED', 'DRAFT'] } },
+        select: { id: true },
+    });
+    return products.map((p) => ({ id: p.id }));
+}
 
 export default async function ProductPage({ params }: { params: { id: string } }) {
     // Await params if required by Next.js 15+, but standard 14 approach is direct. Use `await` just in case.

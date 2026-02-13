@@ -17,7 +17,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
     // Filter Logic
     const where: any = {
-        status: 'PUBLISHED',
+        status: { in: ['PUBLISHED', 'DRAFT'] },
     };
 
     if (category) where.categoryId = category;

@@ -2,7 +2,13 @@ import prisma from '@/lib/db';
 import { ProductsList } from '@/components/products/products-list';
 import { notFound } from 'next/navigation';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+    const categories = await prisma.category.findMany({ select: { id: true } });
+    return categories.map((c) => ({ id: c.id }));
+}
 
 interface Props {
     params: Promise<{ id: string }>;
@@ -19,7 +25,7 @@ export default async function CategoryDetailPage(props: Props) {
     const products = await prisma.product.findMany({
         where: {
             categoryId: params.id,
-            status: 'PUBLISHED',
+            status: { in: ['PUBLISHED', 'DRAFT'] },
         },
         include: {
             brand: true,
